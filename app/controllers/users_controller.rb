@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :require_login
+  skip_before_action :require_login, only: [:index, :new, :create]
+
+
   def index
 
   end
@@ -8,12 +12,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to user_path(@user) #users/:id
     else
-      redirect_to '/'
+      redirect_to '/' #goes back to sign in/sign up
     end
   end
 
@@ -35,6 +39,8 @@ class UsersController < ApplicationController
     )
   end
 
-
+  def require_login
+    redirect_to '/' unless session.include? :user_id
+  end
 
 end
