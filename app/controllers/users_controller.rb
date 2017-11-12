@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  before_action :require_login
-  skip_before_action :require_login, only: [:index, :new, :create]
 
 
   def index
@@ -17,12 +15,24 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user) #users/:id
     else
-      redirect_to '/' #goes back to sign in/sign up
+      flash[:alert] = "Alert message"
+      redirect_to '/' #goes back to sign in/sign up. would be nice to add error messages.
+
     end
   end
 
   def show
-    @user = User.find(params[:id])
+    if logged_in?
+      @user = User.find(params[:id])
+    end
+  end
+
+  def destroy
+    current_user.destroy
+    session[:user_id] = nil
+    #   redirect_to '/sessions/new'
+    # else
+    # redirect_to '/'
   end
 
   private
@@ -37,10 +47,6 @@ class UsersController < ApplicationController
       :nausea,
       :admin
     )
-  end
-
-  def require_login
-    redirect_to '/' unless session.include? :user_id
   end
 
 end

@@ -1,6 +1,13 @@
-Welcome, <%= @user.name %>!
+Welcome, <%= @user.name %>!<br>
+
+<% if @user.admin %>
+  <%= "ADMIN" %>
+<% end %>
+
 <p>
-Mood: <%= @user.happiness %> happy<br>
-Height: <%= @user.height %> inches
+Mood: <%= @user.mood %><br>
+Height: <%= @user.height %> inches<br>
 Level of nausea: <%= @user.nausea %><br>
 Tickets: <%= @user.tickets %>
+<p>
+<%= link_to "Log Out", root_path, :method => :delete %>
