@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
-  resources :attractions
+  resources :attractions, only: [:index]
 
   root to: 'users#index'
 end
