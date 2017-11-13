@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   get '/signin', to: 'sessions#new' #sign in page
   get '/home', to: 'users#show' #user home page
-  # get '/signout', to: 'sessions#destroy'
-  delete '/signout', to: 'sessions#destroy'
+  get '/signout', to: 'sessions#destroy'
+  # delete '/signout', to: 'sessions#destroy'
 
   resources :users
   resources :sessions
