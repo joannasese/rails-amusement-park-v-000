@@ -4,11 +4,15 @@ Rails.application.routes.draw do
 
   get '/signin', to: 'sessions#new' #sign in page
   get '/home', to: 'users#show' #user home page
-  delete '/signout', to: 'users#destroy'
+  # get '/signout', to: 'sessions#destroy'
+  delete '/signout', to: 'sessions#destroy'
 
   resources :users
   resources :sessions
-  resources :attractions, only: [:index]
+  resources :attractions
+
+  get '/attractions', to: 'attractions#show'
+
 
   root to: 'users#index'
 end

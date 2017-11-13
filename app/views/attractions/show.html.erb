@@ -1,0 +1,5 @@
+<%= form_for attraction_path(@attraction) do |f| %>
+  <%= hidden_field_tag "user_id", value: current_user.id %>
+
+  <%= f.submit "Go on this ride" %>
+<% end %>

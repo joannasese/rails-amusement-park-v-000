@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
-
-
   def index
-
   end
 
   def new
@@ -27,11 +24,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    # reset_session
-    session[:user_id] = nil
-    redirect_to '/'
-  end
+  # def destroy
+  #   # reset_session
+  #   session[:user_id] = nil
+  #   redirect_to '/'
+  # end
 
   private
 
