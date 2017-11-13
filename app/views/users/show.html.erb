@@ -10,6 +10,6 @@ Height: <%= @user.height %> inches<br>
 Level of nausea: <%= @user.nausea %><br>
 Tickets: <%= @user.tickets %>
 <p>
-<%= link_to "Attractions", controller: 'sessions', action: 'index' %>
+<%= link_to "See attractions", controller: 'attractions', action: 'index' %>
 
 <%= link_to "Log Out", signout_path, :method => :delete %>
