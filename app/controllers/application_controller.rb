@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   skip_before_action :require_login, only: [:index, :new, :create, :destroy]
 
   def current_user
-    session[:user_id]
+    # session[:user_id]
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def require_login
@@ -15,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !!current_user
+    !current_user = nil
   end
 
 

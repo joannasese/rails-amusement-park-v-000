@@ -28,11 +28,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    current_user.destroy
+    # reset_session
     session[:user_id] = nil
-    #   redirect_to '/sessions/new'
-    # else
-    # redirect_to '/'
+    redirect_to '/'
   end
 
   private
