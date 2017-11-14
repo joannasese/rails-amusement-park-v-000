@@ -17,11 +17,11 @@ class AttractionsController < ApplicationController
     if logged_in?
       @attraction = Attraction.find(params[:id])
       @user = current_user
-      # @user = User.find(params[:id])
-      # @user = something
-      # binding.pry
-
     end
+  end
+
+  def edit
+    @attraction = Attraction.find(params[:id])
   end
 
   private

@@ -6,6 +6,10 @@
  <input type="submit" value="Go on this ride" >
 </form>
 
+<% if current_user.admin %>
+  <%= link_to "Edit Attraction", edit_attraction_path %>
+<% end %>
+
 <!-- <%= button_to "Go on this ride", user_path(@user), method: "patch", id: "Go on this ride" %> -->
 
 <!-- <%= form_for Ride.new, url: rides_new_path do |f| %>
