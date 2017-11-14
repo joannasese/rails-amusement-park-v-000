@@ -1,5 +1,9 @@
 Welcome, <%= @user.name %>!<br>
 
+<% if @message %>
+  <p><%= @message %></p>
+<% end %>
+
 <% if @user.admin %>
   <%= "ADMIN" %>
 <% end %>
@@ -9,6 +13,7 @@ Mood: <%= @user.mood %><br>
 Height: <%= @user.height %> inches<br>
 Level of nausea: <%= @user.nausea %><br>
 Tickets: <%= @user.tickets %>
+
 <p>
 <%= link_to "See attractions", attractions_path %>
 <p>

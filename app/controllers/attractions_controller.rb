@@ -15,6 +15,7 @@ class AttractionsController < ApplicationController
   def show
     if logged_in?
       @attraction = Attraction.find(params[:id])
+      @user = current_user
       # @user = User.find(params[:id])
       # @user = something
       # binding.pry

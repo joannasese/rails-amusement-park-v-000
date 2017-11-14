@@ -14,8 +14,9 @@ Rails.application.routes.draw do
 
   get '/attractions', to: 'attractions#show'
 
-  post "/rides/new", to: "rides#new"
-
+  # post "/rides/new", to: "rides#new"
+  get '/rides/new', to: 'rides#new'
+  post '/rides/new', to: 'rides#create'
 
 
   root to: 'users#index'

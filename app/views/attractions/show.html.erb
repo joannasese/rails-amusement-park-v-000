@@ -1,14 +1,14 @@
-<!-- <%= form_for attraction_path(@attraction) do |f| %>
-  <%= hidden_field_tag "user_id", value: current_user.id %>
-
-  <%= f.submit "Go on this ride" %>
-<% end %> -->
-
-<!-- <%= button_to "Go on this ride", controller: "users", action: "show", method: "post" %> -->
-
 <form action="/rides/new" method="post">
  <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
  <%= tag(:input, :type => "hidden", :name => :user_id, :value => current_user.id) %>
  <%= tag(:input, :type => "hidden", :name => :attraction_id, :value => @attraction.id) %>
- <input type="submit" value="Go on this ride">
+ <input type="submit" value="Go on this ride" >
 </form>
+
+<!-- <%= button_to "Go on this ride", user_path(@user), method: "patch", id: "Go on this ride" %> -->
+
+<!-- <%= form_for Ride.new, url: rides_new_path do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :attraction_id, value: @attraction.id %>
+  <%= f.submit "Go on this ride" %>
+<% end %> -->
