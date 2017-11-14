@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/rides/new', to: 'rides#new'
   post '/rides/new', to: 'rides#create'
 
+  post '/attractions/new', to: 'attractions#show'
+
 
   root to: 'users#index'
 end
